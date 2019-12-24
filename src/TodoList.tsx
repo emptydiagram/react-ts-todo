@@ -1,6 +1,14 @@
-import React, { Component } from 'react';
+import React, { Component, ChangeEvent } from 'react';
 import './TodoList.css';
-import { TodoProps } from './TodoProps';
+
+type TodoProps = {
+    name: string,
+    items: string[],
+    completed: boolean[],
+    newEntryText: string,
+    handleAddNewEntry: () => void,
+    handleNewEntryTextChange: (e: ChangeEvent<HTMLInputElement>) => void,
+}
 
 class TodoItem extends Component<{ item: string, completed: boolean }, {}> {
     render() {
@@ -28,7 +36,10 @@ export default class TodoList extends Component<TodoProps, {}> {
         return <div id="todoList">
             <h1>todo list named "{this.props.name}"</h1>
             <div id="listContainer">
-                <input id="newEntryInput" type="text" placeholder="New entry" />
+                <input id="newEntryInput" type="text" placeholder="New entry"
+                    value={this.props.newEntryText}
+                    onChange={this.props.handleNewEntryTextChange}/>
+                <button onClick={this.props.handleAddNewEntry}>Add</button>
                 <ul>
                     {listItems}
                 </ul>
