@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './TodoList.css';
 import { TodoProps } from './TodoProps';
 
 class TodoItem extends Component<{ item: string, completed: boolean }, {}> {
@@ -26,9 +27,12 @@ export default class TodoList extends Component<TodoProps, {}> {
 
         return <div id="todoList">
             <h1>todo list named "{this.props.name}"</h1>
-            <ul>
-                {listItems}
-            </ul>
+            <div id="listContainer">
+                <input id="newEntryInput" type="text" placeholder="New entry" />
+                <ul>
+                    {listItems}
+                </ul>
+            </div>
             </div>;
     }
 
