@@ -11,8 +11,8 @@ class App extends React.Component<{}, TodoProps> {
     super(props);
     this.state = {
       name: "test-list-1",
-      items: ["take a shower", "take out the trash"],
-      completed: [false, true],
+      items: ["take a shower", "take out the trash", "C"],
+      completed: [false, true, false],
     }
   }
   render() {
