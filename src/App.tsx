@@ -6,7 +6,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
-        <p>edited</p>
+        <p>hello, react + typescript</p>
       </header>
       <div>
         <Clock />

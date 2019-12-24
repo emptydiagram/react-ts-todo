@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'; // let's also import Component
+import './Clock.css';
 
 // the clock's state has one field: The current time, based upon the
 // JavaScript class Date
@@ -32,6 +33,12 @@ export default class Clock extends Component<{}, ClockState> {
 
   // render will know everything!
   render() {
-    return <p>The current time is {this.state.time.toLocaleTimeString()}</p>
+    let message = "The current time is " + this.state.time.toLocaleTimeString();
+
+    if (this.state.time.getSeconds() % 10 === 0) {
+        return <p className="highlight-10">{ message }</p>
+    } else {
+        return <p>{ message }</p>
+    }
   }
 }
