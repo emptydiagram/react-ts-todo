@@ -20,14 +20,14 @@ A brief overview of what each of the files does:
     - renders the root view
     - holds all the state of the todo app
     - defines mutation methods that setState()
-    - calls Clock and TodoList
- - Clock
+    - uses Clock and TodoList
+ - Clock.tsx
     - a ticking clock
     - has its own state, the current date + time
     - the date/time is updated with the latest once every second
     - current date/time is displayed
     - there's logic to color the clock text red every 5th second
- - TodoList
+ - TodoList.tsx
     - a todo list
     - can add new items, and check/uncheck existing items as completed
     - there's an option to hide/show all completed items
