@@ -13,7 +13,7 @@ interface TodoState {
     hideCompleted: boolean,
 }
 
-//const App: React.FC = () => {
+// TODO: const App: React.FC = () => {
 class App extends React.Component<{}, TodoState> {
   backend: DataBackend
 

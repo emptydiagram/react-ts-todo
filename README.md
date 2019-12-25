@@ -36,7 +36,7 @@ A brief overview of what each of the files does:
  - TodoList.tsx
     - a todo list
     - can add new items
-    - can edit existing items, and toggle items as completed
+    - can edit existing items (double click/tap), and toggle items as completed
     - there's an option to hide/show all completed items
 
 ---
