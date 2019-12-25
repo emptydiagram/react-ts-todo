@@ -12,6 +12,7 @@ type ClockState = {
 // and state. Since we don't have props, we pass an empty object.
 export default class Clock extends Component<{}, ClockState> {
 
+  // annotate the type of props since typescript will not compile implicit any
   constructor(props: {}) {
     super(props);
     this.state = {
