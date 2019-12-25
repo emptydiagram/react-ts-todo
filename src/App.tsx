@@ -8,6 +8,7 @@ interface TodoState {
     items: string[],
     completed: boolean[],
     newEntryText: string,
+    hideCompleted: boolean,
 }
 
 //const App: React.FC = () => {
@@ -20,11 +21,13 @@ class App extends React.Component<{}, TodoState> {
       items: ["take a shower", "take out the trash", "C"],
       completed: [false, true, false],
       newEntryText: ":)",
+      hideCompleted: false,
     }
 
     this.handleAddNewEntry = this.handleAddNewEntry.bind(this);
     this.handleNewEntryTextChange = this.handleNewEntryTextChange.bind(this);
     this.handleToggleCompletion = this.handleToggleCompletion.bind(this);
+    this.handleToggleHideCompleted = this.handleToggleHideCompleted.bind(this);
   }
 
   handleNewEntryTextChange(e: ChangeEvent<HTMLInputElement>) {
@@ -48,6 +51,12 @@ class App extends React.Component<{}, TodoState> {
     });
   }
 
+  handleToggleHideCompleted(e: ChangeEvent<HTMLInputElement>) {
+    this.setState((state, props) => ({
+      hideCompleted: !state.hideCompleted
+    }));
+  }
+
   render() {
     return (
       <div className="App">
@@ -66,9 +75,11 @@ class App extends React.Component<{}, TodoState> {
             items={this.state.items}
             completed={this.state.completed}
             newEntryText={this.state.newEntryText}
+            hideCompleted={this.state.hideCompleted}
             handleAddNewEntry={this.handleAddNewEntry}
             handleNewEntryTextChange={this.handleNewEntryTextChange}
             handleToggleCompletion={this.handleToggleCompletion}
+            handleToggleHideCompleted={this.handleToggleHideCompleted}
           />
         </div>
       </div>

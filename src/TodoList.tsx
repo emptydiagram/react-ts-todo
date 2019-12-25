@@ -6,9 +6,11 @@ type TodoProps = {
     items: string[],
     completed: boolean[],
     newEntryText: string,
+    hideCompleted: boolean,
     handleAddNewEntry: () => void,
     handleNewEntryTextChange: (e: ChangeEvent<HTMLInputElement>) => void,
     handleToggleCompletion: (e: ChangeEvent<HTMLInputElement>, i: number) => void,
+    handleToggleHideCompleted: (e: ChangeEvent<HTMLInputElement>) => void,
 }
 
 type TodoItemProps = {
@@ -34,10 +36,13 @@ export default class TodoList extends Component<TodoProps, {}> {
     render() {
         let listItems = [];
         for (let i = 0; i < this.props.items.length; i++) {
-            const isCompleted = this.props.items[i];
+            const isCompleted = this.props.completed[i];
+            if (this.props.hideCompleted && isCompleted) {
+                continue;
+            }
             let newItem = <TodoItem
-                item={isCompleted}
-                completed={this.props.completed[i]}
+                item={this.props.items[i]}
+                completed={isCompleted}
                 handleToggleCompletion={(e) => this.props.handleToggleCompletion(e, i)}
                 key={i}
             />;
@@ -51,6 +56,10 @@ export default class TodoList extends Component<TodoProps, {}> {
                     value={this.props.newEntryText}
                     onChange={this.props.handleNewEntryTextChange}/>
                 <button onClick={this.props.handleAddNewEntry}>Add</button>
+                <span>
+                    <input type="checkbox" onChange={this.props.handleToggleHideCompleted} />
+                    Hide completed
+                </span>
                 <ul>
                     {listItems}
                 </ul>
