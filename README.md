@@ -10,6 +10,7 @@ The main source files are:
 src
 ├── App.tsx - the root component
 ├── Clock.tsx
+├── DataBackend.tsx
 ├── index.tsx - main entry point
 └── TodoList.tsx
 ```
@@ -23,12 +24,15 @@ A brief overview of what each of the files does:
     - holds all the state of the todo app
     - defines mutation methods that setState()
     - uses Clock and TodoList
+    - persists state changes to localStorage
  - Clock.tsx
     - a ticking clock
     - has its own state, the current date + time
     - the date/time is updated with the latest once every second
     - current date/time is displayed
     - there's logic to color the clock text red every 5th second
+ - DataBackend.tsx
+    - persistence to localStorage
  - TodoList.tsx
     - a todo list
     - can add new items
