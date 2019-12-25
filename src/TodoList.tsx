@@ -6,9 +6,14 @@ type TodoProps = {
     items: string[],
     completed: boolean[],
     newEntryText: string,
+    editingEntryInfo: {text: string, id: number} | null,
     hideCompleted: boolean,
     handleAddNewEntry: () => void,
+    handleCancelEditingEntry: () => void,
+    handleEditingEntryTextChange: (e: ChangeEvent<HTMLInputElement>) => void,
     handleNewEntryTextChange: (e: ChangeEvent<HTMLInputElement>) => void,
+    handleSaveEntryText: () => void,
+    handleStartEditingEntry: (i: number) => void,
     handleToggleCompletion: (e: ChangeEvent<HTMLInputElement>, i: number) => void,
     handleToggleHideCompleted: (e: ChangeEvent<HTMLInputElement>) => void,
 }
@@ -16,18 +21,32 @@ type TodoProps = {
 type TodoItemProps = {
     item: string,
     completed: boolean,
+    editingEntryInfo: {text: string, id: number} | null,
+    handleCancelEditingEntry: () => void,
+    handleDoubleClick: () => void,
+    handleEditingEntryTextChange: (e: ChangeEvent<HTMLInputElement>) => void,
+    handleSaveEntryText: () => void,
     handleToggleCompletion: (e: ChangeEvent<HTMLInputElement>) => void,
 }
 
 class TodoItem extends Component<TodoItemProps, {}> {
     render() {
+        let itemDisplay = this.props.editingEntryInfo != null
+            ? <span>
+                <input type="text" className="editing"
+                    value={this.props.editingEntryInfo.text}
+                    onChange={this.props.handleEditingEntryTextChange}/>
+                <button onClick={this.props.handleSaveEntryText}>Save</button>
+                <button onClick={this.props.handleCancelEditingEntry}>Cancel</button>
+              </span>
+            : <span onDoubleClick={this.props.handleDoubleClick}>{this.props.item}</span>;
         return <li>
             <input
                 type="checkbox"
                 checked={this.props.completed}
                 onChange={this.props.handleToggleCompletion}
             />
-            <span>{this.props.item}</span>
+           {itemDisplay}
         </li>;
     }
 }
@@ -40,9 +59,20 @@ export default class TodoList extends Component<TodoProps, {}> {
             if (this.props.hideCompleted && isCompleted) {
                 continue;
             }
+            // TODO: more concise? what does `this.props.editingInfo?.id` do?
+            let info =
+                (this.props.editingEntryInfo != null && i === this.props.editingEntryInfo!.id)
+                ? this.props.editingEntryInfo
+                : null;
+
             let newItem = <TodoItem
                 item={this.props.items[i]}
                 completed={isCompleted}
+                editingEntryInfo={info}
+                handleCancelEditingEntry={this.props.handleCancelEditingEntry}
+                handleDoubleClick={() => this.props.handleStartEditingEntry(i)}
+                handleEditingEntryTextChange={this.props.handleEditingEntryTextChange}
+                handleSaveEntryText={this.props.handleSaveEntryText}
                 handleToggleCompletion={(e) => this.props.handleToggleCompletion(e, i)}
                 key={i}
             />;

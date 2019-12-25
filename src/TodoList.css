@@ -20,3 +20,7 @@
     width: 35em;
     margin: 0 auto;
 }
+
+input.editing {
+    width: 22em;
+}
