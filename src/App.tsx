@@ -63,13 +63,9 @@ class App extends React.Component<{}, TodoState> {
         <header className="App-header">
           <p>hello, react + typescript</p>
         </header>
-        <div>
-          <ul>
-            <li>0</li>
-            <li>1</li>
-            <li>2</li>
-          </ul>
+        <main>
           <Clock />
+          <hr />
           <TodoList
             name={this.state.name}
             items={this.state.items}
@@ -81,7 +77,7 @@ class App extends React.Component<{}, TodoState> {
             handleToggleCompletion={this.handleToggleCompletion}
             handleToggleHideCompleted={this.handleToggleHideCompleted}
           />
-        </div>
+        </main>
       </div>
     );
   }
