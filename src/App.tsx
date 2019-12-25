@@ -35,6 +35,7 @@ class App extends React.Component<{}, TodoState> {
   }
 
   handleAddNewEntry() {
+    // TODO: persist to a backend
     this.setState((state, props) => ({
       items: state.items.concat(state.newEntryText),
       completed: this.state.completed.concat(false),
@@ -43,6 +44,7 @@ class App extends React.Component<{}, TodoState> {
   }
 
   handleToggleCompletion(e: ChangeEvent<HTMLInputElement>, i: number) {
+    // TODO: persist to a backend
     this.setState((state, props) => {
       let newCompleted = this.state.completed.map((c, j) => (i === j) ? !c : c)
       return {
@@ -52,6 +54,7 @@ class App extends React.Component<{}, TodoState> {
   }
 
   handleToggleHideCompleted(e: ChangeEvent<HTMLInputElement>) {
+    // TODO: persist to a backend
     this.setState((state, props) => ({
       hideCompleted: !state.hideCompleted
     }));

@@ -50,7 +50,7 @@ export default class TodoList extends Component<TodoProps, {}> {
         }
 
         return <div id="todoList">
-            <h1>todo list named "{this.props.name}"</h1>
+            <h1>list "{this.props.name}"</h1>
             <div id="listContainer">
                 <input id="newEntryInput" type="text" placeholder="New entry"
                     value={this.props.newEntryText}
