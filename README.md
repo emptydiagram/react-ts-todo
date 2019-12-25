@@ -2,7 +2,7 @@
 
 A simple todo list app written in React + Typescript.
 
-DEMO: https://maniacalhonks.github.io/react-ts-todo/
+Demo: https://maniacalhonks.github.io/react-ts-todo/
 
 The main source files are:
 
