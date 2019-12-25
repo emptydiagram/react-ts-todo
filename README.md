@@ -31,7 +31,8 @@ A brief overview of what each of the files does:
     - there's logic to color the clock text red every 5th second
  - TodoList.tsx
     - a todo list
-    - can add new items, and check/uncheck existing items as completed
+    - can add new items
+    - can edit existing items, and toggle items as completed
     - there's an option to hide/show all completed items
 
 ---
