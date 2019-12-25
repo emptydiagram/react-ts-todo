@@ -24,6 +24,7 @@ class App extends React.Component<{}, TodoState> {
 
     this.handleAddNewEntry = this.handleAddNewEntry.bind(this);
     this.handleNewEntryTextChange = this.handleNewEntryTextChange.bind(this);
+    this.handleToggleCompletion = this.handleToggleCompletion.bind(this);
   }
 
   handleNewEntryTextChange(e: ChangeEvent<HTMLInputElement>) {
@@ -38,11 +39,13 @@ class App extends React.Component<{}, TodoState> {
     }));
   }
 
-  handleToggleCompleted(i: any) {
-    // TODO
-    this.setState((state, props) => ({
-        items: this.state.items
-      }));
+  handleToggleCompletion(e: ChangeEvent<HTMLInputElement>, i: number) {
+    this.setState((state, props) => {
+      let newCompleted = this.state.completed.map((c, j) => (i === j) ? !c : c)
+      return {
+        completed: newCompleted,
+      };
+    });
   }
 
   render() {
@@ -65,6 +68,7 @@ class App extends React.Component<{}, TodoState> {
             newEntryText={this.state.newEntryText}
             handleAddNewEntry={this.handleAddNewEntry}
             handleNewEntryTextChange={this.handleNewEntryTextChange}
+            handleToggleCompletion={this.handleToggleCompletion}
           />
         </div>
       </div>
