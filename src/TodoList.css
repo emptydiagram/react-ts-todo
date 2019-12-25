@@ -1,3 +1,6 @@
+#todoList {
+    font-size: 1.5em;
+}
 #todoList ul {
     border-top: 1px solid #000;
     border-left: 1px solid #000;
@@ -10,17 +13,29 @@
 #todoList li {
     padding: 0.4em;
     border-bottom: 1px solid #333;
+    font-size: 1em;
 }
 
 #newEntryInput {
-    width: 32em;
+    width: 80%;
+    font-size: 1em;
+}
+
+#hideCompleted {
+    margin-top: 0.5em;
 }
 
 #listContainer {
-    width: 35em;
+    width: 20em;
     margin: 0 auto;
 }
 
 input.editing {
-    width: 22em;
+    width: 55%;
+    /* TODO: what is going on here? */
+    font-size: 1em;
+}
+
+button {
+    font-size: 0.8em;
 }

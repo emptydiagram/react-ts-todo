@@ -80,13 +80,13 @@ export default class TodoList extends Component<TodoProps, {}> {
         }
 
         return <div id="todoList">
-            <h1>list "{this.props.name}"</h1>
+            <h1>to-do</h1>
             <div id="listContainer">
                 <input id="newEntryInput" type="text" placeholder="New entry"
                     value={this.props.newEntryText}
                     onChange={this.props.handleNewEntryTextChange}/>
                 <button onClick={this.props.handleAddNewEntry}>Add</button>
-                <div>
+                <div id="hideCompleted">
                     <input type="checkbox"
                         checked={this.props.hideCompleted}
                         onChange={this.props.handleToggleHideCompleted} />
