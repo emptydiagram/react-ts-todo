@@ -32,7 +32,6 @@ A brief overview of what each of the files does:
     - can add new items, and check/uncheck existing items as completed
     - there's an option to hide/show all completed items
 
-
 ---
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
