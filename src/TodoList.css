@@ -25,9 +25,15 @@
     margin-top: 0.5em;
 }
 
+input[type=checkbox] {
+    transform: scale(1.6);
+    margin-right: 0.7em;
+}
+
 #listContainer {
     width: 20em;
     margin: 0 auto;
+    padding-bottom: 2em;
 }
 
 input.editing {
