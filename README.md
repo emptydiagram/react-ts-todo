@@ -1,5 +1,7 @@
 # react-ts-todo
 
+A simple todo list app written in React + Typescript.
+
 The main source files are:
 
 ```
@@ -9,6 +11,27 @@ src
 ├── index.tsx - main entry point
 └── TodoList.tsx
 ```
+
+A brief overview of what each of the files does:
+
+ - index.tsx
+    - `ReactDOM.render(<App />, document.getElementById('root'));`
+ - App.tsx
+    - renders the root view
+    - holds all the state of the todo app
+    - defines mutation methods that setState()
+    - calls Clock and TodoList
+ - Clock
+    - a ticking clock
+    - has its own state, the current date + time
+    - the date/time is updated with the latest once every second
+    - current date/time is displayed
+    - there's logic to color the clock text red every 5th second
+ - TodoList
+    - a todo list
+    - can add new items, and check/uncheck existing items as completed
+    - there's an option to hide/show all completed items
+
 
 ---
 

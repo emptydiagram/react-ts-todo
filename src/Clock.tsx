@@ -39,7 +39,7 @@ export default class Clock extends Component<{}, ClockState> {
 
     // let s = this.state.time.getSeconds();
 
-    if (this.state.time.getSeconds() % 10 === 0) {
+    if (this.state.time.getSeconds() % 5 === 0) {
         return <p className="highlight-10">{ message }</p>
     } else {
         return <p>{ message }</p>
