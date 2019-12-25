@@ -46,7 +46,7 @@ class App extends React.Component<{}, TodoState> {
   handleToggleCompletion(e: ChangeEvent<HTMLInputElement>, i: number) {
     // TODO: persist to a backend
     this.setState((state, props) => {
-      let newCompleted = this.state.completed.map((c, j) => (i === j) ? !c : c)
+      let newCompleted = state.completed.map((c, j) => (i === j) ? !c : c)
       return {
         completed: newCompleted,
       };
