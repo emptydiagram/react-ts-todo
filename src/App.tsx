@@ -2,6 +2,7 @@ import React, { ChangeEvent } from 'react';
 import './App.css';
 import Clock from './Clock';
 import TodoList from './TodoList';
+import { DataBackend, LocalStorageBackend } from './DataBackend';
 
 interface TodoState {
     name: string,
@@ -14,16 +15,25 @@ interface TodoState {
 
 //const App: React.FC = () => {
 class App extends React.Component<{}, TodoState> {
+  backend: DataBackend
+
   constructor(props: {}) {
     super(props);
 
-    this.state = {
-      name: "test-list-1",
-      items: ["take a shower", "take out the trash", "C"],
-      completed: [false, true, false],
-      newEntryText: ":)",
-      editingEntryInfo: null,
-      hideCompleted: false,
+    this.backend = new LocalStorageBackend();
+
+    let savedState = this.getState();
+    if (savedState != null) {
+      this.state = savedState;
+    } else {
+      this.state = {
+        name: "test-list-1",
+        items: ["take a shower", "take out the trash", "C"],
+        completed: [false, true, false],
+        newEntryText: ":)",
+        editingEntryInfo: null,
+        hideCompleted: false,
+      }
     }
 
     this.handleAddNewEntry = this.handleAddNewEntry.bind(this);
@@ -36,6 +46,10 @@ class App extends React.Component<{}, TodoState> {
 
     this.handleToggleCompletion = this.handleToggleCompletion.bind(this);
     this.handleToggleHideCompleted = this.handleToggleHideCompleted.bind(this);
+  }
+
+  componentDidUpdate() {
+    this.persistState();
   }
 
   handleStartEditingEntry(id: number) {
@@ -60,34 +74,47 @@ class App extends React.Component<{}, TodoState> {
     });
   }
 
+  persistState() {
+    this.backend.set("rttodo_state", JSON.stringify(this.state));
+  }
+
+  getState() {
+    return JSON.parse(this.backend.get("rttodo_state") || "null")
+  }
+
   handleNewEntryTextChange(e: ChangeEvent<HTMLInputElement>) {
     this.setState({newEntryText: e.target.value});
   }
 
   handleAddNewEntry() {
-    // TODO: persist to a backend
-    this.setState((state, props) => ({
-      items: state.items.concat(state.newEntryText),
-      completed: this.state.completed.concat(false),
-      newEntryText: '',
-    }));
+    this.setState(
+      (state, props) => ({
+        items: state.items.concat(state.newEntryText),
+        completed: this.state.completed.concat(false),
+        newEntryText: '',
+      })
+    );
   }
 
   handleToggleCompletion(e: ChangeEvent<HTMLInputElement>, i: number) {
     // TODO: persist to a backend
-    this.setState((state, props) => {
-      let newCompleted = state.completed.map((c, j) => (i === j) ? !c : c)
-      return {
-        completed: newCompleted,
-      };
-    });
+    this.setState(
+      (state, props) => {
+        let newCompleted = state.completed.map((c, j) => (i === j) ? !c : c)
+        return {
+          completed: newCompleted,
+        };
+      }
+    );
   }
 
   handleToggleHideCompleted(e: ChangeEvent<HTMLInputElement>) {
     // TODO: persist to a backend
-    this.setState((state, props) => ({
-      hideCompleted: !state.hideCompleted
-    }));
+    this.setState(
+      (state, props) => ({
+        hideCompleted: !state.hideCompleted
+      })
+    );
   }
 
   handleSaveEntryText() {
