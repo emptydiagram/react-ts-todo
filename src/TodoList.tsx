@@ -86,12 +86,12 @@ export default class TodoList extends Component<TodoProps, {}> {
                     value={this.props.newEntryText}
                     onChange={this.props.handleNewEntryTextChange}/>
                 <button onClick={this.props.handleAddNewEntry}>Add</button>
-                <span>
+                <div>
                     <input type="checkbox"
                         checked={this.props.hideCompleted}
                         onChange={this.props.handleToggleHideCompleted} />
                     Hide completed
-                </span>
+                </div>
                 <ul>
                     {listItems}
                 </ul>
