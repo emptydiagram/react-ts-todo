@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/react-ts-todo/static/css/main.161eb5d8.chunk.css",
+    "main.css": "/react-ts-todo/static/css/main.ccc5e160.chunk.css",
     "main.js": "/react-ts-todo/static/js/main.504cd868.chunk.js",
     "main.js.map": "/react-ts-todo/static/js/main.504cd868.chunk.js.map",
     "runtime-main.js": "/react-ts-todo/static/js/runtime-main.cb1b152b.js",
@@ -8,15 +8,15 @@
     "static/js/2.1df6bfc1.chunk.js": "/react-ts-todo/static/js/2.1df6bfc1.chunk.js",
     "static/js/2.1df6bfc1.chunk.js.map": "/react-ts-todo/static/js/2.1df6bfc1.chunk.js.map",
     "index.html": "/react-ts-todo/index.html",
-    "precache-manifest.bd86df3a92306d4302cbb1d64d9342f2.js": "/react-ts-todo/precache-manifest.bd86df3a92306d4302cbb1d64d9342f2.js",
+    "precache-manifest.5c695709be3fe6fd1073b2136a69bbc9.js": "/react-ts-todo/precache-manifest.5c695709be3fe6fd1073b2136a69bbc9.js",
     "service-worker.js": "/react-ts-todo/service-worker.js",
-    "static/css/main.161eb5d8.chunk.css.map": "/react-ts-todo/static/css/main.161eb5d8.chunk.css.map",
+    "static/css/main.ccc5e160.chunk.css.map": "/react-ts-todo/static/css/main.ccc5e160.chunk.css.map",
     "static/js/2.1df6bfc1.chunk.js.LICENSE": "/react-ts-todo/static/js/2.1df6bfc1.chunk.js.LICENSE"
   },
   "entrypoints": [
     "static/js/runtime-main.cb1b152b.js",
     "static/js/2.1df6bfc1.chunk.js",
-    "static/css/main.161eb5d8.chunk.css",
+    "static/css/main.ccc5e160.chunk.css",
     "static/js/main.504cd868.chunk.js"
   ]
 }
