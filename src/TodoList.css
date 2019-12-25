@@ -1,5 +1,5 @@
 #todoList {
-    font-size: 1.5em;
+    font-size: 1.4em;
 }
 #todoList ul {
     border-top: 1px solid #000;
@@ -17,7 +17,7 @@
 }
 
 #newEntryInput {
-    width: 80%;
+    width: 60%;
     font-size: 1em;
 }
 
@@ -37,7 +37,7 @@ input[type=checkbox] {
 }
 
 input.editing {
-    width: 55%;
+    width: 52%;
     /* TODO: what is going on here? */
     font-size: 1em;
 }
