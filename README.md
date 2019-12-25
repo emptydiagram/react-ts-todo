@@ -1,3 +1,17 @@
+# react-ts-todo
+
+The main source files are:
+
+```
+src
+├── App.tsx - the root component
+├── Clock.tsx
+├── index.tsx - main entry point
+└── TodoList.tsx
+```
+
+---
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
